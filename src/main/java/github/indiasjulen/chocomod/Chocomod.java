@@ -53,9 +53,7 @@ public class Chocomod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-        if(event.getTabKey() == ModCreativeModeTabs.CHOCOMOD_TAB.getKey()) {
-            event.accept(ModItems.MILK_CHOCOLATE_INGOT);
-        }
+
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
