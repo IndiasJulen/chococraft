@@ -1,5 +1,7 @@
 {
   "item.chocomod.milk_chocolate_ingot": "Milk Chocolate Ingot",
+  "item.chocomod.white_chocolate_ingot": "White Chocolate Ingot",
+  "item.chocomod.dark_chocolate_ingot": "Dark Chocolate Ingot",
 
   "creativetab.chocomod_tab": "Chocomod"
 }

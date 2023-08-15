@@ -17,8 +17,9 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MILK_CHOCOLATE_INGOT.get()))
                     .title(Component.translatable("creativetab.chocomod_tab"))
                     .displayItems((pParameters, pOutput) -> {
-                        // repeat this line for each item/block of the mod
                         pOutput.accept(ModItems.MILK_CHOCOLATE_INGOT.get());
+                        pOutput.accept(ModItems.WHITE_CHOCOLATE_INGOT.get());
+                        pOutput.accept(ModItems.DARK_CHOCOLATE_INGOT.get());
                     })
                     .build());
 

@@ -10,8 +10,16 @@ import net.minecraftforge.registries.RegistryObject;
 public class ModItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Chocomod.MOD_ID);
 
-    // the zircon item registered in the creative custom tab
+    // Milk chocolate ingot
     public static final RegistryObject<Item> MILK_CHOCOLATE_INGOT = ITEMS.register("milk_chocolate_ingot",
+            () -> new Item(new Item.Properties()));
+
+    // White chocolate ingot
+    public static final RegistryObject<Item> WHITE_CHOCOLATE_INGOT = ITEMS.register("white_chocolate_ingot",
+            () -> new Item(new Item.Properties()));
+
+    // Dark chocolate ingot
+    public static final RegistryObject<Item> DARK_CHOCOLATE_INGOT = ITEMS.register("dark_chocolate_ingot",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
