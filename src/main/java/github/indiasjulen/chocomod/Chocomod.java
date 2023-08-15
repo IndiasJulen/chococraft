@@ -1,6 +1,9 @@
 package github.indiasjulen.chocomod;
 
 import com.mojang.logging.LogUtils;
+import github.indiasjulen.chocomod.item.ModCreativeModeTabs;
+import github.indiasjulen.chocomod.item.ModItems;
+import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -26,6 +29,11 @@ public class Chocomod {
     public Chocomod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
+        ModCreativeModeTabs.register(modEventBus);
+
+        ModItems.register(modEventBus);
+
+
         // Register the commonSetup method for modloading
         modEventBus.addListener(this::commonSetup);
 
@@ -45,7 +53,9 @@ public class Chocomod {
 
     // Add the example block item to the building blocks tab
     private void addCreative(BuildCreativeModeTabContentsEvent event) {
-
+        if(event.getTabKey() == ModCreativeModeTabs.CHOCOMOD_TAB.getKey()) {
+            event.accept(ModItems.MILK_CHOCOLATE_INGOT);
+        }
     }
 
     // You can use SubscribeEvent and let the Event Bus discover methods to call
