@@ -1,6 +1,7 @@
 package github.indiasjulen.chocomod;
 
 import com.mojang.logging.LogUtils;
+import github.indiasjulen.chocomod.block.ModBlocks;
 import github.indiasjulen.chocomod.item.ModCreativeModeTabs;
 import github.indiasjulen.chocomod.item.ModItems;
 import net.minecraft.world.item.CreativeModeTabs;
@@ -32,6 +33,7 @@ public class Chocomod {
         ModCreativeModeTabs.register(modEventBus);
 
         ModItems.register(modEventBus);
+        ModBlocks.register(modEventBus);
 
 
         // Register the commonSetup method for modloading

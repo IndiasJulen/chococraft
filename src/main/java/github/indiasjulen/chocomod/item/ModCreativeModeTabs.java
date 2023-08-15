@@ -1,6 +1,7 @@
 package github.indiasjulen.chocomod.item;
 
 import github.indiasjulen.chocomod.Chocomod;
+import github.indiasjulen.chocomod.block.ModBlocks;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.network.chat.Component;
 import net.minecraft.world.item.CreativeModeTab;
@@ -18,11 +19,15 @@ public class ModCreativeModeTabs {
             () -> CreativeModeTab.builder().icon(() -> new ItemStack(ModItems.MILK_CHOCOLATE_INGOT.get()))
                     .title(Component.translatable("creativetab.chocomod_tab"))
                     .displayItems((pParameters, pOutput) -> {
+                        // Items
                         pOutput.accept(ModItems.MILK_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.WHITE_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.DARK_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.ROASTED_COCOA_BEANS.get());
-                        pOutput.accept(Items.COCOA_BEANS);
+
+                        // Blocks
+                        pOutput.accept(ModBlocks.CHOCOLATE_REFINER_BLOCK.get());
+
                     })
                     .build());
 

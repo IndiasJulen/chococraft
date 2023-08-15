@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=north": {
+      "model": "chocomod:block/chocolate_refiner"
+    },
+    "facing=south": {
+      "model": "chocomod:block/chocolate_refiner",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "chocomod:block/chocolate_refiner",
+      "y": 270
+    },
+    "facing=east": {
+      "model": "chocomod:block/chocolate_refiner",
+      "y": 90
+    }
+  }
+}
