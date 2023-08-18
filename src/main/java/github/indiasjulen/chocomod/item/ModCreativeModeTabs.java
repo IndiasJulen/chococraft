@@ -24,6 +24,8 @@ public class ModCreativeModeTabs {
                         pOutput.accept(ModItems.WHITE_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.DARK_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.ROASTED_COCOA_BEANS.get());
+                        pOutput.accept(ModItems.WHITE_CHOCOLATE_SWORD.get());
+                        pOutput.accept(ModItems.COCOA_BUTTER_BOWL.get());
 
                         // Blocks
                         pOutput.accept(ModBlocks.CHOCOLATE_REFINER_BLOCK.get());

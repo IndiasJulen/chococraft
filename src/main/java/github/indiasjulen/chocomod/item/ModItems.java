@@ -1,7 +1,11 @@
 package github.indiasjulen.chocomod.item;
 
 import github.indiasjulen.chocomod.Chocomod;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.SwordItem;
+import net.minecraft.world.item.Tiers;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -25,6 +29,16 @@ public class ModItems {
     // Roasted cocoa beans
     public static final RegistryObject<Item> ROASTED_COCOA_BEANS = ITEMS.register("roasted_cocoa_beans",
             () -> new Item(new Item.Properties()));
+
+    // Roasted cocoa beans
+    public static final RegistryObject<Item> COCOA_BUTTER_BOWL = ITEMS.register("cocoa_butter_bowl",
+            () -> new Item(new Item.Properties()));
+
+    // Roasted cocoa beans
+    public static final RegistryObject<Item> WHITE_CHOCOLATE_SWORD = ITEMS.register("white_chocolate_sword",
+            () -> new SwordItem(Tiers.DIAMOND,3, 3, new Item.Properties()));
+
+
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
