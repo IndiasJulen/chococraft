@@ -20,13 +20,21 @@ public class ModCreativeModeTabs {
                     .title(Component.translatable("creativetab.chocomod_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         // Items
+                        /* CHOCOLATE BARS */
+                        pOutput.accept(ModItems.MILK_CHOCOLATE_BAR.get());
+                        pOutput.accept(ModItems.WHITE_CHOCOLATE_BAR.get());
+                        pOutput.accept(ModItems.DARK_CHOCOLATE_BAR.get());
+
+                        /* INGOTS */
                         pOutput.accept(ModItems.MILK_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.WHITE_CHOCOLATE_INGOT.get());
                         pOutput.accept(ModItems.DARK_CHOCOLATE_INGOT.get());
+
+                        /* OTHER */
                         pOutput.accept(ModItems.ROASTED_COCOA_BEANS.get());
                         pOutput.accept(ModItems.WHITE_CHOCOLATE_SWORD.get());
                         pOutput.accept(ModItems.COCOA_BUTTER_BOWL.get());
-
+                        
                         // Blocks
                         pOutput.accept(ModBlocks.CHOCOLATE_REFINER_BLOCK.get());
 
