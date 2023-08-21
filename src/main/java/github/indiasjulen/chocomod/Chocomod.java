@@ -2,8 +2,12 @@ package github.indiasjulen.chocomod;
 
 import com.mojang.logging.LogUtils;
 import github.indiasjulen.chocomod.block.ModBlocks;
+import github.indiasjulen.chocomod.block.entity.ModBlockEntities;
 import github.indiasjulen.chocomod.item.ModCreativeModeTabs;
 import github.indiasjulen.chocomod.item.ModItems;
+import github.indiasjulen.chocomod.screen.ChocolateRefinerScreen;
+import github.indiasjulen.chocomod.screen.ModMenuTypes;
+import net.minecraft.client.gui.screens.MenuScreens;
 import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
@@ -34,6 +38,10 @@ public class Chocomod {
 
         ModItems.register(modEventBus);
         ModBlocks.register(modEventBus);
+
+        ModBlockEntities.register(modEventBus);
+
+        ModMenuTypes.register(modEventBus);
 
 
         // Register the commonSetup method for modloading
@@ -69,6 +77,7 @@ public class Chocomod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
+            MenuScreens.register(ModMenuTypes.CHOCOLATE_REFINER_MENU.get(), ChocolateRefinerScreen::new);
 
         }
     }
