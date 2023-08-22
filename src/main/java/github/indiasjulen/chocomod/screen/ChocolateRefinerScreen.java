@@ -9,6 +9,7 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
+import org.joml.Quaternionf;
 
 public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRefinerMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Chocomod.MOD_ID, "textures/gui/chocolate_refiner_gui.png");
@@ -68,7 +69,10 @@ public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRef
 
     private void renderWheel(GuiGraphics pGuiGraphics, int x, int y) {
         if(menu.isCrafting()) {
+//            pGuiGraphics.pose().scale(1.1F, 1.1F,1.1F);
+//            pGuiGraphics.pose().mulPose(new Quaternionf(0.0F, 0.05F, 0.0F, 0.05));
             pGuiGraphics.blit(TEXTURE, x + 100, y + 37, 176, 0, 13, 13);
+
         }
     }
 
