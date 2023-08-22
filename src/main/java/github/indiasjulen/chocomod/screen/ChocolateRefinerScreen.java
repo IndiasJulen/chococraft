@@ -30,6 +30,46 @@ public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRef
         int y = (height - imageHeight) / 2;
 
         pGuiGraphics.blit(TEXTURE, x, y, 0, 0, imageWidth, imageHeight);
+
+        renderWheel(pGuiGraphics, x, y);
+        renderTimer(pGuiGraphics, x, y);
+    }
+
+    // CREDIT GOES TO: hadrus and their Alcocraft mod | https://github.com/hadrus/Alcocraft where this method has been taken from
+    // and the renderTimer has takes inspiration from.
+    public static int rawColorFromRGB(int red, int green, int blue) {
+        int rgb = Math.max(Math.min(0xFF, red), 0);
+        rgb = (rgb << 8) + Math.max(Math.min(0xFF, green), 0);
+        rgb = (rgb << 8) + Math.max(Math.min(0xFF, blue), 0);
+        return rgb;
+    }
+
+    private void renderTimer(GuiGraphics pGuiGraphics, int x, int y) {
+        if (!menu.isCrafting()) {
+            pGuiGraphics.drawString(this.font, "00:00", x + 94, y + 62, rawColorFromRGB(87, 87, 87), false);
+        } else {
+            int time = this.menu.getProgress()/20;
+            int minutes = (int) (time / 60);
+            int seconds = (int) (time % 60);
+
+            String min = String.valueOf(minutes);
+            if (minutes < 10) {
+                min = "0" + min;
+            }
+
+            String sec =  String.valueOf(seconds);
+            if (seconds < 10) {
+                sec = "0" + sec;
+            }
+
+            pGuiGraphics.drawString(this.font, min + ":" + sec, x + 94, y + 62, rawColorFromRGB(87, 87, 87), false);
+        }
+    }
+
+    private void renderWheel(GuiGraphics pGuiGraphics, int x, int y) {
+        if(menu.isCrafting()) {
+            pGuiGraphics.blit(TEXTURE, x + 100, y + 37, 176, 0, 13, 13);
+        }
     }
 
     @Override

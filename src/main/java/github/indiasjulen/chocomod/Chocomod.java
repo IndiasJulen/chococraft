@@ -1,14 +1,13 @@
 package github.indiasjulen.chocomod;
 
 import com.mojang.logging.LogUtils;
-import github.indiasjulen.chocomod.block.ModBlocks;
-import github.indiasjulen.chocomod.block.entity.ModBlockEntities;
-import github.indiasjulen.chocomod.item.ModCreativeModeTabs;
-import github.indiasjulen.chocomod.item.ModItems;
+import github.indiasjulen.chocomod.block.ChocoBlocks;
+import github.indiasjulen.chocomod.block.entity.ChocoBlockEntities;
+import github.indiasjulen.chocomod.item.ChocoCreativeModeTabs;
+import github.indiasjulen.chocomod.item.ChocoItems;
 import github.indiasjulen.chocomod.screen.ChocolateRefinerScreen;
-import github.indiasjulen.chocomod.screen.ModMenuTypes;
+import github.indiasjulen.chocomod.screen.ChocoMenuTypes;
 import net.minecraft.client.gui.screens.MenuScreens;
-import net.minecraft.world.item.CreativeModeTabs;
 import net.minecraftforge.api.distmarker.Dist;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.BuildCreativeModeTabContentsEvent;
@@ -34,14 +33,14 @@ public class Chocomod {
     public Chocomod() {
         IEventBus modEventBus = FMLJavaModLoadingContext.get().getModEventBus();
 
-        ModCreativeModeTabs.register(modEventBus);
+        ChocoCreativeModeTabs.register(modEventBus);
 
-        ModItems.register(modEventBus);
-        ModBlocks.register(modEventBus);
+        ChocoItems.register(modEventBus);
+        ChocoBlocks.register(modEventBus);
 
-        ModBlockEntities.register(modEventBus);
+        ChocoBlockEntities.register(modEventBus);
 
-        ModMenuTypes.register(modEventBus);
+        ChocoMenuTypes.register(modEventBus);
 
 
         // Register the commonSetup method for modloading
@@ -77,7 +76,7 @@ public class Chocomod {
     public static class ClientModEvents {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
-            MenuScreens.register(ModMenuTypes.CHOCOLATE_REFINER_MENU.get(), ChocolateRefinerScreen::new);
+            MenuScreens.register(ChocoMenuTypes.CHOCOLATE_REFINER_MENU.get(), ChocolateRefinerScreen::new);
 
         }
     }

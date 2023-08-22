@@ -2,7 +2,7 @@ package github.indiasjulen.chocomod.item;
 
 import net.minecraft.world.food.FoodProperties;
 
-public class ModFoods {
+public class ChocoFoods {
     public static final FoodProperties MILK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
             .saturationMod(0.6f).build(); // we could add the .effect() method in the case of the flavoured chocolate bars
 

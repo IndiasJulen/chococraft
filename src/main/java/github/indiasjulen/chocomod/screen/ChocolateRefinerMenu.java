@@ -1,6 +1,6 @@
 package github.indiasjulen.chocomod.screen;
 
-import github.indiasjulen.chocomod.block.ModBlocks;
+import github.indiasjulen.chocomod.block.ChocoBlocks;
 import github.indiasjulen.chocomod.block.entity.ChocolateRefinerBlockEntity;
 import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.world.entity.player.Inventory;
@@ -11,6 +11,7 @@ import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.items.SlotItemHandler;
+import org.jetbrains.annotations.NotNull;
 
 public class ChocolateRefinerMenu extends AbstractContainerMenu {
     public final ChocolateRefinerBlockEntity blockEntity;
@@ -22,14 +23,14 @@ public class ChocolateRefinerMenu extends AbstractContainerMenu {
     }
 
     public ChocolateRefinerMenu(int id, Inventory inv, BlockEntity pEntity, ContainerData data) {
-        super(ModMenuTypes.CHOCOLATE_REFINER_MENU.get(), id);
+        super(ChocoMenuTypes.CHOCOLATE_REFINER_MENU.get(), id);
         checkContainerSize(inv, 4);
         blockEntity = (ChocolateRefinerBlockEntity) pEntity;
         this.level = inv.player.level();
         this.data = data;
 
         addPlayerInventory(inv);
-        addPlayerHotBar(inv);
+        addPlayerHotbar(inv);
 
         this.blockEntity.getCapability(ForgeCapabilities.ITEM_HANDLER).ifPresent(handler -> {
             this.addSlot(new SlotItemHandler(handler, 0, 25, 35));
@@ -42,15 +43,7 @@ public class ChocolateRefinerMenu extends AbstractContainerMenu {
     }
 
     public boolean isCrafting() {
-        return this.data.get(0) > 0;
-    }
-
-    public int getScaledProgress() {
-        int progress = this.data.get(0);
-        int maxProgress = this.data.get(1);
-        int progressArrowSize = 26; // change this as we are not using an arrow for measuring the progess
-
-        return 50;
+        return this.data.get(0) != blockEntity.getTimeToCraft();
     }
 
     // CREDIT GOES TO: diesieben07 | https://github.com/diesieben07/SevenCommons
@@ -67,12 +60,10 @@ public class ChocolateRefinerMenu extends AbstractContainerMenu {
     private static final int VANILLA_SLOT_COUNT = HOTBAR_SLOT_COUNT + PLAYER_INVENTORY_SLOT_COUNT;
     private static final int VANILLA_FIRST_SLOT_INDEX = 0;
     private static final int TE_INVENTORY_FIRST_SLOT_INDEX = VANILLA_FIRST_SLOT_INDEX + VANILLA_SLOT_COUNT;
-
-    // THIS YOU HAVE TO DEFINE!
-    private static final int TE_INVENTORY_SLOT_COUNT = 4;  // must be the number of slots you have!
+    private static final int TE_INVENTORY_SLOT_COUNT = 4;
 
     @Override
-    public ItemStack quickMoveStack(Player playerIn, int index) {
+    public @NotNull ItemStack quickMoveStack(@NotNull Player playerIn, int index) {
         Slot sourceSlot = slots.get(index);
         if (sourceSlot == null || !sourceSlot.hasItem()) return ItemStack.EMPTY;  //EMPTY_ITEM
         ItemStack sourceStack = sourceSlot.getItem();
@@ -105,22 +96,26 @@ public class ChocolateRefinerMenu extends AbstractContainerMenu {
     }
 
     @Override
-    public boolean stillValid(Player pPlayer) {
+    public boolean stillValid(@NotNull Player pPlayer) {
         return stillValid(ContainerLevelAccess.create(level, blockEntity.getBlockPos()),
-                pPlayer, ModBlocks.CHOCOLATE_REFINER_BLOCK.get());
+                pPlayer, ChocoBlocks.CHOCOLATE_REFINER_BLOCK.get());
     }
 
     private void addPlayerInventory(Inventory playerInventory) {
-        for(int i = 0; i < 4; i++) {
-            for(int j = 0; j < 9; j++) {
-                this.addSlot(new Slot(playerInventory, j + i * 9 + 9, 8 + j * 18, 86 + i * 18));
+        for (int i = 0; i < 3; ++i) {
+            for (int l = 0; l < 9; ++l) {
+                this.addSlot(new Slot(playerInventory, l + i * 9 + 9, 8 + l * 18, 84 + i * 18));
             }
         }
     }
 
-    private void addPlayerHotBar(Inventory playerInventory) {
-        for(int i = 0; i < 4; i++) {
-            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 144));
+    private void addPlayerHotbar(Inventory playerInventory) {
+        for (int i = 0; i < 9; ++i) {
+            this.addSlot(new Slot(playerInventory, i, 8 + i * 18, 142));
         }
+    }
+
+    public int getProgress() {
+        return this.data.get(0);
     }
 }

@@ -1,9 +1,6 @@
 package github.indiasjulen.chocomod.item;
 
 import github.indiasjulen.chocomod.Chocomod;
-import net.minecraft.world.effect.MobEffect;
-import net.minecraft.world.effect.MobEffects;
-import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.item.SwordItem;
 import net.minecraft.world.item.Tiers;
@@ -12,7 +9,7 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
-public class ModItems {
+public class ChocoItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Chocomod.MOD_ID);
 
     // Milk chocolate ingot
@@ -37,15 +34,15 @@ public class ModItems {
 
     // Milk chocolate bar
     public static final RegistryObject<Item> MILK_CHOCOLATE_BAR = ITEMS.register("milk_chocolate_bar",
-            () -> new Item(new Item.Properties().food(ModFoods.MILK_CHOCOLATE_BAR)));
+            () -> new Item(new Item.Properties().food(ChocoFoods.MILK_CHOCOLATE_BAR)));
 
     // White chocolate bar
     public static final RegistryObject<Item> WHITE_CHOCOLATE_BAR = ITEMS.register("white_chocolate_bar",
-            () -> new Item(new Item.Properties().food(ModFoods.WHITE_CHOCOLATE_BAR)));
+            () -> new Item(new Item.Properties().food(ChocoFoods.WHITE_CHOCOLATE_BAR)));
 
     // Dark chocolate bar
     public static final RegistryObject<Item> DARK_CHOCOLATE_BAR = ITEMS.register("dark_chocolate_bar",
-            () -> new Item(new Item.Properties().food(ModFoods.DARK_CHOCOLATE_BAR)));
+            () -> new Item(new Item.Properties().food(ChocoFoods.DARK_CHOCOLATE_BAR)));
 
     // Roasted cocoa beans
     public static final RegistryObject<Item> WHITE_CHOCOLATE_SWORD = ITEMS.register("white_chocolate_sword",

@@ -1,7 +1,7 @@
 package github.indiasjulen.chocomod.block.custom;
 
 import github.indiasjulen.chocomod.block.entity.ChocolateRefinerBlockEntity;
-import github.indiasjulen.chocomod.block.entity.ModBlockEntities;
+import github.indiasjulen.chocomod.block.entity.ChocoBlockEntities;
 import net.minecraft.core.BlockPos;
 import net.minecraft.server.level.ServerPlayer;
 import net.minecraft.world.InteractionHand;
@@ -93,6 +93,6 @@ public class ChocolateRefinerBlock extends BaseEntityBlock {
     @Nullable
     @Override
     public <T extends BlockEntity> BlockEntityTicker<T> getTicker(Level pLevel, BlockState pState, BlockEntityType<T> pBlockEntityType) {
-        return createTickerHelper(pBlockEntityType, ModBlockEntities.CHOCOLATE_REFINER.get(), ChocolateRefinerBlockEntity::tick);
+        return createTickerHelper(pBlockEntityType, ChocoBlockEntities.CHOCOLATE_REFINER.get(), ChocolateRefinerBlockEntity::tick);
     }
 }

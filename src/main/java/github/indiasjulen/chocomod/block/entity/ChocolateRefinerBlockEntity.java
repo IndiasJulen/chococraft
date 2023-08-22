@@ -1,7 +1,6 @@
 package github.indiasjulen.chocomod.block.entity;
 
-import github.indiasjulen.chocomod.block.custom.ChocolateRefinerBlock;
-import github.indiasjulen.chocomod.item.ModItems;
+import github.indiasjulen.chocomod.item.ChocoItems;
 import github.indiasjulen.chocomod.screen.ChocolateRefinerMenu;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -14,25 +13,18 @@ import net.minecraft.world.entity.player.Inventory;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
-import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.item.Items;
-import net.minecraft.world.item.MinecartItem;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
-import net.minecraft.world.level.block.entity.BlockEntityType;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.common.capabilities.Capability;
 import net.minecraftforge.common.capabilities.ForgeCapabilities;
 import net.minecraftforge.common.util.LazyOptional;
 import net.minecraftforge.items.IItemHandler;
-import net.minecraftforge.items.ItemHandlerHelper;
 import net.minecraftforge.items.ItemStackHandler;
-import net.minecraftforge.server.command.ModIdArgument;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
-
-import javax.swing.plaf.basic.BasicComboBoxUI;
 
 public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProvider {
     private final ItemStackHandler itemHandler = new ItemStackHandler(4) {
@@ -46,17 +38,18 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
-    private int progress = 0;
-    private int maxProgress = 78;
+    private final int TIME_TO_CRAFT = 6000;
+    private int progress = TIME_TO_CRAFT;
+    private int minProgress = 0;
 
     public ChocolateRefinerBlockEntity(BlockPos pPos, BlockState pBlockState) {
-        super(ModBlockEntities.CHOCOLATE_REFINER.get(), pPos, pBlockState);
+        super(ChocoBlockEntities.CHOCOLATE_REFINER.get(), pPos, pBlockState);
         this.data = new ContainerData() {
             @Override
             public int get(int pIndex) {
                 return switch (pIndex){
                     case 0 -> ChocolateRefinerBlockEntity.this.progress;
-                    case 1 -> ChocolateRefinerBlockEntity.this.maxProgress;
+                    case 1 -> ChocolateRefinerBlockEntity.this.minProgress;
                     default -> 0;
                 };
             }
@@ -65,7 +58,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
             public void set(int pIndex, int pValue) {
                 switch (pIndex){
                     case 0 -> ChocolateRefinerBlockEntity.this.progress = pValue;
-                    case 1 -> ChocolateRefinerBlockEntity.this.maxProgress = pValue;
+                    case 1 -> ChocolateRefinerBlockEntity.this.minProgress = pValue;
                 };
             }
 
@@ -78,7 +71,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
 
     @Override
     public @NotNull Component getDisplayName() {
-        return Component.translatable("chocolate_refiner");
+        return Component.translatable("block.chocomod.chocolate_refiner");
     }
 
     @Nullable
@@ -122,6 +115,10 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
         itemHandler.deserializeNBT(nbt.getCompound("inventory"));
     }
 
+    public int getTimeToCraft() {
+        return this.TIME_TO_CRAFT;
+    }
+
     /**
      * Method for dropping the contents of the Refiner when destroying it
      */
@@ -132,6 +129,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
             inventory.setItem(i, itemHandler.getStackInSlot(i));
         }
 
+        assert this.level != null;
         Containers.dropContents(this.level, this.worldPosition, inventory);
     }
 
@@ -140,27 +138,29 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
             return;
         }
 
+
         if(hasRecipe(pEntity)) {
-            pEntity.progress++;
+            System.out.println(pEntity.progress);
+            pEntity.progress--;
             setChanged(pLevel, pPos, pState);
 
-            if(pEntity.progress >= pEntity.maxProgress) {
+            if(pEntity.progress <= pEntity.minProgress) {
                 craftItem(pEntity);
-            } else {
-                pEntity.resetProgress();
-                setChanged(pLevel, pPos, pState);
             }
+        } else {
+            pEntity.resetProgress();
+            setChanged(pLevel, pPos, pState);
         }
     }
 
     private void resetProgress() {
-        this.progress = 0;
+        this.progress = TIME_TO_CRAFT;
     }
 
     private static void craftItem(ChocolateRefinerBlockEntity pEntity) {
         if(hasRecipe(pEntity)) {
-            pEntity.itemHandler.extractItem(1, 1, false);
-            pEntity.itemHandler.setStackInSlot(3, new ItemStack(ModItems.COCOA_BUTTER_BOWL.get(),
+            pEntity.itemHandler.extractItem(0, 1, false);
+            pEntity.itemHandler.setStackInSlot(3, new ItemStack(ChocoItems.COCOA_BUTTER_BOWL.get(),
                     pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
 
             pEntity.resetProgress();
@@ -176,7 +176,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
         boolean hasCocoaBeansInFirstSlot = pEntity.itemHandler.getStackInSlot(0).getItem() == Items.COCOA_BEANS;
 
         return hasCocoaBeansInFirstSlot && canInsertAmountIntoOutputSlot(inventory) &&
-                canInsertItemIntoOutputSlot(inventory, new ItemStack(ModItems.COCOA_BUTTER_BOWL.get(), 1));
+                canInsertItemIntoOutputSlot(inventory, new ItemStack(ChocoItems.COCOA_BUTTER_BOWL.get(), 1));
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
