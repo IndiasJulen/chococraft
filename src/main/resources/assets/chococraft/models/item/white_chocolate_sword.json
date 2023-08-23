@@ -1,0 +1,6 @@
+{
+  "parent": "item/handheld",
+  "textures": {
+    "layer0": "chococraft:item/white_chocolate_sword"
+  }
+}

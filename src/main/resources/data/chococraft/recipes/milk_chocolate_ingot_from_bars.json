@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "pattern": [
+    "###",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "item": "chococraft:milk_chocolate_bar"
+    }
+  },
+  "result": {
+    "item": "chococraft:milk_chocolate_ingot"
+  }
+}

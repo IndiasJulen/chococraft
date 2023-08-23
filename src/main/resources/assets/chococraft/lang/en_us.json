@@ -1,0 +1,17 @@
+{
+  "item.chococraft.milk_chocolate_ingot": "Milk Chocolate Ingot",
+  "item.chococraft.white_chocolate_ingot": "White Chocolate Ingot",
+  "item.chococraft.dark_chocolate_ingot": "Dark Chocolate Ingot",
+  "item.chococraft.roasted_cocoa_beans": "Roasted Cocoa Beans",
+  "item.chococraft.cocoa_butter_bowl": "Cocoa Butter Bowl",
+  "item.chococraft.milk_chocolate_bar": "Milk Chocolate Bar",
+  "item.chococraft.white_chocolate_bar": "White Chocolate Bar",
+  "item.chococraft.dark_chocolate_bar": "Dark Chocolate Bar",
+
+  "item.chococraft.white_chocolate_sword": "White Chocolate Sword",
+
+
+  "block.chococraft.chocolate_refiner": "Chocolate Refiner",
+
+  "creativetab.chococraft_tab": "Chocomod"
+}

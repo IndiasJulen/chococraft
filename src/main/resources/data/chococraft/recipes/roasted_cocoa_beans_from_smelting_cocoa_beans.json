@@ -1,0 +1,10 @@
+{
+  "type": "minecraft:smelting",
+  "cookingtime": 200,
+  "experience": 0.7,
+  "group": "roasted_cocoa_beans",
+  "ingredient": {
+    "item": "minecraft:cocoa_beans"
+  },
+  "result": "chococraft:roasted_cocoa_beans"
+}
