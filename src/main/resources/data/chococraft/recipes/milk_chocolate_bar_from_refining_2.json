@@ -1,0 +1,17 @@
+{
+  "type": "chococraft:chocolate_refining",
+  "ingredients":[
+    {
+      "item": "minecraft:sugar"
+    },
+    {
+      "item": "chococraft:roasted_cocoa_beans"
+    },
+    {
+      "item": "chococraft:cocoa_butter_bowl"
+    }
+  ],
+  "result": {
+    "item": "chococraft:milk_chocolate_bar"
+  }
+}

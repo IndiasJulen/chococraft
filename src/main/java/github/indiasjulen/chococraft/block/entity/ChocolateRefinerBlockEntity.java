@@ -170,6 +170,8 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
 
         if(hasRecipe(pEntity)) {
             pEntity.itemHandler.extractItem(0, 1, false);
+            pEntity.itemHandler.extractItem(1, 1, false);
+            pEntity.itemHandler.extractItem(2, 1, false);
             pEntity.itemHandler.setStackInSlot(3, new ItemStack(recipe.get().getResultItem(null).getItem(),
                     pEntity.itemHandler.getStackInSlot(3).getCount() + 1));
 
