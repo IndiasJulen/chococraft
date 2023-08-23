@@ -48,6 +48,9 @@ public class ChocoItems {
     public static final RegistryObject<Item> WHITE_CHOCOLATE_SWORD = ITEMS.register("white_chocolate_sword",
             () -> new SwordItem(Tiers.DIAMOND,3, 3, new Item.Properties()));
 
+    // Milk bowl
+    public static final RegistryObject<Item> MILK_BOWL = ITEMS.register("milk_bowl",
+            () -> new Item(new Item.Properties()));
 
 
     public static void register(IEventBus eventBus) {

@@ -33,7 +33,8 @@ public class ChocoCreativeModeTabs {
                         pOutput.accept(ChocoItems.ROASTED_COCOA_BEANS.get());
                         pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
                         pOutput.accept(ChocoItems.COCOA_BUTTER_BOWL.get());
-                        
+                        pOutput.accept(ChocoItems.MILK_BOWL.get());
+
                         // Blocks
                         pOutput.accept(ChocoBlocks.CHOCOLATE_REFINER_BLOCK.get());
 
