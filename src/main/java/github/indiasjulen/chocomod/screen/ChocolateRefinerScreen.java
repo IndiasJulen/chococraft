@@ -1,6 +1,7 @@
 package github.indiasjulen.chocomod.screen;
 
 import com.mojang.blaze3d.systems.RenderSystem;
+import com.mojang.math.Transformation;
 import github.indiasjulen.chocomod.Chocomod;
 import net.minecraft.client.gui.GuiGraphics;
 import net.minecraft.client.gui.screens.inventory.AbstractContainerScreen;
@@ -9,7 +10,10 @@ import net.minecraft.network.chat.Component;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.player.Inventory;
 import org.jetbrains.annotations.NotNull;
+import org.joml.Matrix2f;
+import org.joml.Matrix4f;
 import org.joml.Quaternionf;
+import org.joml.Vector4fc;
 
 public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRefinerMenu> {
     private static final ResourceLocation TEXTURE = new ResourceLocation(Chocomod.MOD_ID, "textures/gui/chocolate_refiner_gui.png");
@@ -69,9 +73,12 @@ public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRef
 
     private void renderWheel(GuiGraphics pGuiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-//            pGuiGraphics.pose().scale(1.1F, 1.1F,1.1F);
-//            pGuiGraphics.pose().mulPose(new Quaternionf(0.0F, 0.05F, 0.0F, 0.05));
+            pGuiGraphics.pose().pushPose();
+//            pGuiGraphics.pose().mulPose(new Quaternionf(0.0F, 0.71F, 0.0F, 0.0F));
+//            pGuiGraphics.pose().scale(1.1F, 1.1F, 1.1F);
+
             pGuiGraphics.blit(TEXTURE, x + 100, y + 37, 176, 0, 13, 13);
+            pGuiGraphics.pose().popPose();
 
         }
     }

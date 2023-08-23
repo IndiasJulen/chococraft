@@ -140,7 +140,6 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
 
 
         if(hasRecipe(pEntity)) {
-            System.out.println(pEntity.progress);
             pEntity.progress--;
             setChanged(pLevel, pPos, pState);
 
