@@ -80,7 +80,6 @@ public class Chococraft {
         @SubscribeEvent
         public static void onClientSetup(FMLClientSetupEvent event) {
             MenuScreens.register(ChocoMenuTypes.CHOCOLATE_REFINER_MENU.get(), ChocolateRefinerScreen::new);
-
         }
     }
 }
