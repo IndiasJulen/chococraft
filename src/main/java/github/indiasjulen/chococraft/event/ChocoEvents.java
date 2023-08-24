@@ -15,7 +15,6 @@ public class ChocoEvents {
 
     @Mod.EventBusSubscriber(modid = Chococraft.MOD_ID)
     public static class ForgeEvents {
-        public static String id = "";
         /**
          * Method for handling the event when the player interacts with an entity, if the entity is a cow and the
          * player has an empty bowl in its main hand, the bowl will be filled with milk.
@@ -23,20 +22,23 @@ public class ChocoEvents {
         @SubscribeEvent
         public static void onRightClickBowl(PlayerInteractEvent.EntityInteract event) {
             if(!event.getLevel().isClientSide()) {
-                if(id.isEmpty()) {
+                if(event.getHand().equals(InteractionHand.MAIN_HAND)) {
                     // if the target entity is a cow
                     if (event.getTarget() instanceof Cow cow) {
                         // check if the target entity is an adult cow and if the player holds an empty bowl
                         if ((cow.getAge() != -1) && event.getEntity().getItemInHand(InteractionHand.MAIN_HAND).getItem().equals(Items.BOWL)) {
-                            event.getEntity().setItemInHand(InteractionHand.MAIN_HAND,
-                                    new ItemStack(Items.BOWL, event.getEntity().getItemInHand(InteractionHand.MAIN_HAND).getCount() - 1));
-                            event.getEntity().addItem(new ItemStack(ChocoItems.MILK_BOWL.get()));
-
-                            id = (event.toString()).split("EntityInteract@")[1];
+                            // if the player has only one bowl in the hand, replace it with a milk bowl
+                            if(event.getEntity().getItemInHand(InteractionHand.MAIN_HAND).getCount() == 1) {
+                                event.getEntity().setItemInHand(InteractionHand.MAIN_HAND,
+                                        new ItemStack(ChocoItems.MILK_BOWL.get(), 1));
+                            // else add a milk bowl in a separate inventory slot
+                            } else {
+                                event.getEntity().setItemInHand(InteractionHand.MAIN_HAND,
+                                        new ItemStack(Items.BOWL, event.getEntity().getItemInHand(InteractionHand.MAIN_HAND).getCount() - 1));
+                                event.getEntity().addItem(new ItemStack(ChocoItems.MILK_BOWL.get()));
+                            }
                         }
                     }
-                } else {
-                    id = "";
                 }
             }
         }
