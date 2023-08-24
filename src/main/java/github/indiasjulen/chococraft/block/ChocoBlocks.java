@@ -20,10 +20,7 @@ public class ChocoBlocks {
             DeferredRegister.create(ForgeRegistries.BLOCKS, Chococraft.MOD_ID);
 
     public static final RegistryObject<Block> CHOCOLATE_REFINER_BLOCK = registerBlock("chocolate_refiner",
-            () -> new ChocolateRefinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion()));
-
-    public static final RegistryObject<Block> TEST = registerBlock("test",
-            () -> new Block(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion()));
+            () -> new ChocolateRefinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion().requiresCorrectToolForDrops()));
 
 
 
