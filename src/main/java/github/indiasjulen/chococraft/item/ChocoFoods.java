@@ -12,4 +12,20 @@ public class ChocoFoods {
 
     public static final FoodProperties DARK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
             .saturationMod(0.6f).build();
+
+    public static final FoodProperties STRAWBERRY = new FoodProperties.Builder().nutrition(2)
+            .saturationMod(0.3f).build();
+
+    public static final FoodProperties BLUEBERRY = new FoodProperties.Builder().nutrition(2)
+            .saturationMod(0.3f).build();
+
+    public static final FoodProperties RASPBERRY = new FoodProperties.Builder().nutrition(2)
+            .saturationMod(0.3f).build();
+
+    public static final FoodProperties ORANGE = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.3f).build();
+
+    public static final FoodProperties ALMOND = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+
 }

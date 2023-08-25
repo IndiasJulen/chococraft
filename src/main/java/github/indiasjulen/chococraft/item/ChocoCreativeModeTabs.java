@@ -19,23 +19,34 @@ public class ChocoCreativeModeTabs {
                     .title(Component.translatable("creativetab.chococraft_tab"))
                     .displayItems((pParameters, pOutput) -> {
                         // Items
-                        /* CHOCOLATE BARS */
+                        /* FOODS */
                         pOutput.accept(ChocoItems.MILK_CHOCOLATE_BAR.get());
                         pOutput.accept(ChocoItems.WHITE_CHOCOLATE_BAR.get());
                         pOutput.accept(ChocoItems.DARK_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.STRAWBERRY.get());
+                        pOutput.accept(ChocoItems.BLUEBERRY.get());
+                        pOutput.accept(ChocoItems.RASPBERRY.get());
+                        pOutput.accept(ChocoItems.ALMOND.get());
+                        pOutput.accept(ChocoItems.ORANGE.get());
 
-                        /* INGOTS */
+                        /* OTHER */
+                        pOutput.accept(ChocoItems.MINT_LEAF.get());
                         pOutput.accept(ChocoItems.MILK_CHOCOLATE_INGOT.get());
                         pOutput.accept(ChocoItems.WHITE_CHOCOLATE_INGOT.get());
                         pOutput.accept(ChocoItems.DARK_CHOCOLATE_INGOT.get());
-
-                        /* OTHER */
                         pOutput.accept(ChocoItems.ROASTED_COCOA_BEANS.get());
-                        pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
                         pOutput.accept(ChocoItems.COCOA_BUTTER_BOWL.get());
                         pOutput.accept(ChocoItems.MILK_BOWL.get());
 
+                        /* ARMORS */
+
+                        /* TOOLS */
+
+                        /* WEAPONS */
+                        pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
+
                         // Blocks
+                        /* ENTITIES */
                         pOutput.accept(ChocoBlocks.CHOCOLATE_REFINER_BLOCK.get());
 
                     })
