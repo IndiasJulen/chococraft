@@ -5,10 +5,10 @@
       "item": "chococraft:roasted_cocoa_beans"
     },
     {
-      "item": "minecraft:sugar"
+      "item": "chococraft:roasted_cocoa_beans"
     },
     {
-      "item": "chococraft:cocoa_butter_bowl"
+      "item": "minecraft:sugar"
     }
   ],
   "result": {

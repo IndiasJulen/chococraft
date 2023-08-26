@@ -9,11 +9,15 @@ import net.minecraft.network.FriendlyByteBuf;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.util.GsonHelper;
 import net.minecraft.world.SimpleContainer;
+import net.minecraft.world.item.Item;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.*;
 import net.minecraft.world.level.Level;
 import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
+
+import java.util.*;
 
 public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
     private final ResourceLocation id;
@@ -32,9 +36,23 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return recipeItems.get(0).test(pContainer.getItem(0)) &&
-                recipeItems.get(1).test(pContainer.getItem(1)) &&
-                recipeItems.get(2).test(pContainer.getItem(2));
+//        return recipeItems.get(0).test(pContainer.getItem(0)) &&
+//                recipeItems.get(1).test(pContainer.getItem(1)) &&
+//                recipeItems.get(2).test(pContainer.getItem(2));
+
+        return matchesForCocoaButterBowl(pContainer) && matchesForChocolateBars(pContainer);
+    }
+
+    private boolean matchesForChocolateBars(SimpleContainer pContainer) {
+        return false;
+    }
+
+
+    private boolean matchesForCocoaButterBowl(SimpleContainer pContainer) {
+        return recipeItems.size() == 1 && pContainer.getItem(3).getItem() == Items.BOWL
+                && (recipeItems.get(0).test(pContainer.getItem(0))
+                || recipeItems.get(0).test(pContainer.getItem(1))
+                || recipeItems.get(0).test(pContainer.getItem(2)));
     }
 
     @Override
@@ -85,7 +103,7 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
             ItemStack output = ShapedRecipe.itemStackFromJson(GsonHelper.getAsJsonObject(pSerializedRecipe, "result"));
 
             JsonArray ingredients = GsonHelper.getAsJsonArray(pSerializedRecipe, "ingredients");
-            NonNullList<Ingredient> inputs = NonNullList.withSize(3, Ingredient.EMPTY);
+            NonNullList<Ingredient> inputs = NonNullList.withSize(ingredients.size(), Ingredient.EMPTY);
 
             for (int i = 0; i < inputs.size(); i++) {
                 inputs.set(i, Ingredient.fromJson(ingredients.get(i)));

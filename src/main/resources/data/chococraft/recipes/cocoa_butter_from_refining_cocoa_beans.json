@@ -1,0 +1,11 @@
+{
+  "type": "chococraft:chocolate_refining",
+  "ingredients":[
+    {
+      "item": "minecraft:cocoa_beans"
+    }
+  ],
+  "result": {
+    "item": "chococraft:milk_bowl"
+  }
+}

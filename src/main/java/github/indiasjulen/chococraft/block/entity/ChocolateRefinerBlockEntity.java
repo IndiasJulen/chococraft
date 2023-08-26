@@ -14,6 +14,7 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.inventory.AbstractContainerMenu;
 import net.minecraft.world.inventory.ContainerData;
 import net.minecraft.world.item.ItemStack;
+import net.minecraft.world.item.Items;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.block.entity.BlockEntity;
 import net.minecraft.world.level.block.state.BlockState;
@@ -139,7 +140,6 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
             return;
         }
 
-
         if(hasRecipe(pEntity)) {
             pEntity.progress--;
             setChanged(pLevel, pPos, pState);
@@ -195,7 +195,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty();
+        return inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty() || inventory.getItem(3).getItem() == Items.BOWL;
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {

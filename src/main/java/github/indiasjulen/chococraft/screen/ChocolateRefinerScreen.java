@@ -68,13 +68,7 @@ public class ChocolateRefinerScreen extends AbstractContainerScreen<ChocolateRef
 
     private void renderWheel(GuiGraphics pGuiGraphics, int x, int y) {
         if(menu.isCrafting()) {
-            pGuiGraphics.pose().pushPose();
-//            pGuiGraphics.pose().mulPose(new Quaternionf(0.0F, 0.71F, 0.0F, 0.0F));
-//            pGuiGraphics.pose().scale(1.1F, 1.1F, 1.1F);
-
             pGuiGraphics.blit(TEXTURE, x + 100, y + 37, 176, 0, 13, 13);
-            pGuiGraphics.pose().popPose();
-
         }
     }
 
