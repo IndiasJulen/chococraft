@@ -36,15 +36,26 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-//        return recipeItems.get(0).test(pContainer.getItem(0)) &&
-//                recipeItems.get(1).test(pContainer.getItem(1)) &&
-//                recipeItems.get(2).test(pContainer.getItem(2));
-
-        return matchesForCocoaButterBowl(pContainer) && matchesForChocolateBars(pContainer);
+        return matchesForCocoaButterBowl(pContainer) || matchesForChocolateBars(pContainer);
     }
 
     private boolean matchesForChocolateBars(SimpleContainer pContainer) {
-        return false;
+        if(recipeItems.size() == 3) return testIngredientCombinationsForChocolates(pContainer);
+        else return false;
+    }
+
+    private boolean testIngredientCombinationsForChocolates(SimpleContainer pContainer) {
+        boolean matchesIngredient = false;
+        for(int i = 0; i < recipeItems.size(); i++) { // index for iterating the recipe ingredients
+            for(int j = 0; j < recipeItems.size(); j++) { // index for iterating the items in the refiner
+                if (recipeItems.get(i).test(pContainer.getItem(j))) {
+                    matchesIngredient = true;
+                }
+            }
+
+            matchesIngredient = false;
+        }
+        return true;
     }
 
 

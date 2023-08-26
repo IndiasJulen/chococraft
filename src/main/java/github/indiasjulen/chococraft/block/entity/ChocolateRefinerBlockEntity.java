@@ -190,6 +190,8 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
         Optional<ChocolateRefinerRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(ChocolateRefinerRecipe.Type.INSTANCE, inventory, level);
 
+//        System.out.println("RECIPE: " + recipe);
+
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem(null));
     }
