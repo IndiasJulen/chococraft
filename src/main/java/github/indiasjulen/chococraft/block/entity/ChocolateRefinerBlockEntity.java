@@ -40,7 +40,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
-    private final int TIME_TO_CRAFT = 600;
+    private final int TIME_TO_CRAFT = 40;
     private int progress = TIME_TO_CRAFT;
     private int minProgress = 0;
 
@@ -190,14 +190,12 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
         Optional<ChocolateRefinerRecipe> recipe = level.getRecipeManager()
                 .getRecipeFor(ChocolateRefinerRecipe.Type.INSTANCE, inventory, level);
 
-//        System.out.println("RECIPE: " + recipe);
-
         return recipe.isPresent() && canInsertAmountIntoOutputSlot(inventory) &&
                 canInsertItemIntoOutputSlot(inventory, recipe.get().getResultItem(null));
     }
 
     private static boolean canInsertItemIntoOutputSlot(SimpleContainer inventory, ItemStack itemStack) {
-        return inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty() || inventory.getItem(3).getItem() == Items.BOWL;
+        return inventory.getItem(3).getItem() == itemStack.getItem() || inventory.getItem(3).isEmpty();
     }
 
     private static boolean canInsertAmountIntoOutputSlot(SimpleContainer inventory) {

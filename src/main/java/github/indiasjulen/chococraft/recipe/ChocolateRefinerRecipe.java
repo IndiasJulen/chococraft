@@ -36,34 +36,61 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
             return false;
         }
 
-        return matchesForCocoaButterBowl(pContainer) || matchesForChocolateBars(pContainer);
+        // check if the recipe is for the cocoa butter or for chocolate bars
+//        return matchesRecipe(2, pContainer) || matchesRecipe(3, pContainer);
+        return testIngredients(pContainer);
     }
 
-    private boolean matchesForChocolateBars(SimpleContainer pContainer) {
-        if(recipeItems.size() == 3) return testIngredientCombinationsForChocolates(pContainer);
-        else return false;
+    /**
+     * Method for checking what recipe is being checked and if the ingredients in the refiner match the recipe
+     * @param recipeSize, 2 for the cocoa butter bowl and 3 for any of the chocolate bars
+     * @param pContainer, container of the chocolate refiner block entity
+     * @return true or false
+     */
+    private boolean matchesRecipe(int recipeSize, SimpleContainer pContainer) {
+        return recipeItems.size() == recipeSize && testIngredients(pContainer);
     }
 
-    private boolean testIngredientCombinationsForChocolates(SimpleContainer pContainer) {
+    private int getItemsInContainer(SimpleContainer pContainer) {
+        int count = 0;
+        for(int i = 0; i < pContainer.getContainerSize()-1; i++) {
+            if(pContainer.getItem(i).getItem() != Items.AIR) count++;
+        }
+        return count;
+    }
+
+    private String recipeToString(NonNullList<Ingredient> recipeItems) {
+        String list = "";
+        for(int i = 0; i < recipeItems.size(); i++) {
+            list += (Arrays.stream(recipeItems.get(i).getItems()).toList()+",");
+        }
+        return list;
+    }
+
+    /**
+     * Method for iterating over the recipe elements and the items in the refiner slots and checking if they match
+     * @param pContainer, container of the chocolate refiner block entity
+     * @return true or false
+     */
+    private boolean testIngredients(SimpleContainer pContainer) {
+        System.out.println("------------------------------");
+        System.out.println(getItemsInContainer(pContainer));
+        System.out.println(recipeItems.size() + ": " + recipeToString(recipeItems));
+        if(getItemsInContainer(pContainer) != recipeItems.size()) return false;
+
         boolean matchesIngredient = false;
+
         for(int i = 0; i < recipeItems.size(); i++) { // index for iterating the recipe ingredients
+            matchesIngredient = false;
             for(int j = 0; j < recipeItems.size(); j++) { // index for iterating the items in the refiner
                 if (recipeItems.get(i).test(pContainer.getItem(j))) {
                     matchesIngredient = true;
+                    break;
                 }
             }
-
-            matchesIngredient = false;
+            if(!matchesIngredient) return false;
         }
-        return true;
-    }
-
-
-    private boolean matchesForCocoaButterBowl(SimpleContainer pContainer) {
-        return recipeItems.size() == 1 && pContainer.getItem(3).getItem() == Items.BOWL
-                && (recipeItems.get(0).test(pContainer.getItem(0))
-                || recipeItems.get(0).test(pContainer.getItem(1))
-                || recipeItems.get(0).test(pContainer.getItem(2)));
+        return matchesIngredient;
     }
 
     @Override
