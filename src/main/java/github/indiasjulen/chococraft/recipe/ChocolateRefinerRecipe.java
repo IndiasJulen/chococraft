@@ -73,22 +73,19 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
      * @return true or false
      */
     private boolean testIngredients(SimpleContainer pContainer) {
-        System.out.println("------------------------------");
-        System.out.println(getItemsInContainer(pContainer));
-        System.out.println(recipeItems.size() + ": " + recipeToString(recipeItems));
         if(getItemsInContainer(pContainer) != recipeItems.size()) return false;
 
         boolean matchesIngredient = false;
 
-        for(int i = 0; i < recipeItems.size(); i++) { // index for iterating the recipe ingredients
+        for (int i = 0; i < pContainer.getContainerSize() - 1; i++) { // index for iterating the items in the refiner
             matchesIngredient = false;
-            for(int j = 0; j < recipeItems.size(); j++) { // index for iterating the items in the refiner
-                if (recipeItems.get(i).test(pContainer.getItem(j))) {
+            for (Ingredient recipeItem : recipeItems) {
+                if (recipeItem.test(pContainer.getItem(i))) {
                     matchesIngredient = true;
                     break;
                 }
             }
-            if(!matchesIngredient) return false;
+            if (!matchesIngredient) return false;
         }
         return matchesIngredient;
     }
