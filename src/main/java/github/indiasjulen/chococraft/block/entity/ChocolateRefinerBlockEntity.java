@@ -39,7 +39,7 @@ public class ChocolateRefinerBlockEntity extends BlockEntity implements MenuProv
     private LazyOptional<IItemHandler> lazyItemHandler = LazyOptional.empty();
 
     protected final ContainerData data;
-    private final int TIME_TO_CRAFT = 40;
+    private final int TIME_TO_CRAFT = 100;
     private int progress = TIME_TO_CRAFT;
     private int minProgress = 0;
 

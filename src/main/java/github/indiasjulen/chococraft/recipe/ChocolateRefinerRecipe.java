@@ -59,14 +59,6 @@ public class ChocolateRefinerRecipe implements Recipe<SimpleContainer> {
         return count;
     }
 
-    private String recipeToString(NonNullList<Ingredient> recipeItems) {
-        String list = "";
-        for(int i = 0; i < recipeItems.size(); i++) {
-            list += (Arrays.stream(recipeItems.get(i).getItems()).toList()+",");
-        }
-        return list;
-    }
-
     /**
      * Method for iterating over the recipe elements and the items in the refiner slots and checking if they match
      * @param pContainer, container of the chocolate refiner block entity
