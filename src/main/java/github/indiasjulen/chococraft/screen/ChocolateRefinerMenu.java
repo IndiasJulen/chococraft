@@ -36,7 +36,7 @@ public class ChocolateRefinerMenu extends AbstractContainerMenu {
             this.addSlot(new SlotItemHandler(handler, 0, 25, 35));
             this.addSlot(new SlotItemHandler(handler, 1, 50, 35));
             this.addSlot(new SlotItemHandler(handler, 2, 75, 35));
-            this.addSlot(new SlotItemHandler(handler, 3, 125, 35));
+            this.addSlot(new ChocolateRefinerOutputSlot(handler, 3, 125, 35));
         });
 
         addDataSlots(data);
