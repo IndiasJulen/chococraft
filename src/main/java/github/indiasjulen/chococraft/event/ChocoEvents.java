@@ -42,6 +42,15 @@ public class ChocoEvents {
                 }
             }
         }
+
+        /**
+         * Method for handling the event when the player right-clicks a grown fruit tree. If the fruit is fully grown the leaf block will drop a fruit.
+         */
+        @SubscribeEvent
+        public static void onRightClickLeaf(PlayerInteractEvent.RightClickBlock event) {
+            // do stuff
+
+        }
     }
 
 

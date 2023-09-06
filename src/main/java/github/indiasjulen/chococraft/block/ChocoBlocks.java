@@ -1,13 +1,21 @@
 package github.indiasjulen.chococraft.block;
 
 import github.indiasjulen.chococraft.Chococraft;
+import github.indiasjulen.chococraft.block.custom.ChocoFlammableRotatedPillarBlock;
 import github.indiasjulen.chococraft.block.custom.ChocolateRefinerBlock;
 import github.indiasjulen.chococraft.item.ChocoItems;
+import github.indiasjulen.chococraft.world.feature.tree.OrangeTreeGrower;
+import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.LeavesBlock;
+import net.minecraft.world.level.block.SaplingBlock;
 import net.minecraft.world.level.block.state.BlockBehaviour;
+import net.minecraft.world.level.block.state.BlockState;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -23,7 +31,52 @@ public class ChocoBlocks {
             () -> new ChocolateRefinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion().requiresCorrectToolForDrops()));
 
 
+    public static final RegistryObject<Block> ORANGE_TREE_LOG = registerBlock("orange_tree_log",
+            () -> new ChocoFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LOG)));
+    public static final RegistryObject<Block> ORANGE_TREE_WOOD = registerBlock("orange_tree_wood",
+            () -> new ChocoFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.OAK_WOOD)));
+    public static final RegistryObject<Block> STRIPPED_ORANGE_TREE_LOG = registerBlock("stripped_orange_tree_log",
+            () -> new ChocoFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_LOG)));
+    public static final RegistryObject<Block> STRIPPED_ORANGE_TREE_WOOD = registerBlock("stripped_orange_tree_wood",
+            () -> new ChocoFlammableRotatedPillarBlock(BlockBehaviour.Properties.copy(Blocks.STRIPPED_OAK_WOOD)));
 
+    public static final RegistryObject<Block> ORANGE_TREE_PLANKS = registerBlock("orange_tree_planks",
+            () -> new Block(BlockBehaviour.Properties.copy(Blocks.OAK_PLANKS)) {
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 5;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 20;
+                }
+            });
+    public static final RegistryObject<Block> ORANGE_TREE_LEAVES = registerBlock("orange_tree_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+            });
+
+    public static final RegistryObject<Block> ORANGE_TREE_SAPLING = registerBlock("orange_tree_sapling",
+            () -> new SaplingBlock(new OrangeTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 
 
     /**

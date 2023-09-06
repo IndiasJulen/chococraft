@@ -46,6 +46,14 @@ public class ChocoCreativeModeTabs {
                         pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
 
                         // Blocks
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_LOG.get());
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_WOOD.get());
+                        pOutput.accept(ChocoBlocks.STRIPPED_ORANGE_TREE_LOG.get());
+                        pOutput.accept(ChocoBlocks.STRIPPED_ORANGE_TREE_WOOD.get());
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_PLANKS.get());
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_LEAVES.get());
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_SAPLING.get());
+
                         /* ENTITIES */
                         pOutput.accept(ChocoBlocks.CHOCOLATE_REFINER_BLOCK.get());
 

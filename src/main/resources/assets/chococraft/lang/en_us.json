@@ -19,6 +19,13 @@
 
 
   "block.chococraft.chocolate_refiner": "Chocolate Refiner",
+  "block.chococraft.orange_tree_log": "Orange Tree Log",
+  "block.chococraft.orange_tree_planks": "Orange Tree Planks",
+  "block.chococraft.orange_tree_wood": "Orange Tree Wood",
+  "block.chococraft.stripped_orange_tree_log": "Stripped Orange Tree Log",
+  "block.chococraft.stripped_orange_tree_wood": "Stripped Orange Tree Wood",
+  "block.chococraft.orange_tree_leaves": "Orange Tree Leaves",
+  "block.chococraft.orange_tree_sapling": "Orange Tree Sapling",
 
   "creativetab.chococraft_tab": "Chocomod"
 }
