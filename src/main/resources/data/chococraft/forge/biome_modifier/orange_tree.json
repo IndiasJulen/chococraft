@@ -1,0 +1,9 @@
+{
+  "type": "forge:add_features",
+  "biomes": [
+    "minecraft:taiga",
+    "minecraft:plains"
+  ],
+  "features": "chococraft:orange_tree_placed",
+  "step": "vegetal_decoration"
+}

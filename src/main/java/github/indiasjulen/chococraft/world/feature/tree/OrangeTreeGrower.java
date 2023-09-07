@@ -11,6 +11,6 @@ public class OrangeTreeGrower extends AbstractTreeGrower {
     @Nullable
     @Override
     protected ResourceKey<ConfiguredFeature<?, ?>> getConfiguredFeature(RandomSource pRandom, boolean pHasFlowers) {
-        return ChocoConfiguredFeatures.ORANGE_TREE.getKey();
+        return ChocoConfiguredFeatures.ORANGE_TREE_KEY;
     }
 }

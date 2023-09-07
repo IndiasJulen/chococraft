@@ -1,0 +1,9 @@
+{
+  "replace": false,
+  "values": [
+    "chococraft:orange_tree_log",
+    "chococraft:orange_tree_wood",
+    "chococraft:stripped_orange_tree_log",
+    "chococraft:stripped_orange_tree_wood"
+  ]
+}
