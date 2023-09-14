@@ -51,8 +51,8 @@ public class ChocoItems {
     /* TOOLS */
 
     /* WEAPONS */
-    public static final RegistryObject<Item> WHITE_CHOCOLATE_SWORD = ITEMS.register("white_chocolate_sword",
-            () -> new SwordItem(Tiers.DIAMOND,3, 3, new Item.Properties()));
+//    public static final RegistryObject<Item> WHITE_CHOCOLATE_SWORD = ITEMS.register("white_chocolate_sword",
+//            () -> new SwordItem(Tiers.DIAMOND,3, 3, new Item.Properties()));
 
     /* ARMORS */
 

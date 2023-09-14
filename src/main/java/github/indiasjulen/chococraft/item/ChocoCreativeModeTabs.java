@@ -43,7 +43,7 @@ public class ChocoCreativeModeTabs {
                         /* TOOLS */
 
                         /* WEAPONS */
-                        pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
+                        //pOutput.accept(ChocoItems.WHITE_CHOCOLATE_SWORD.get());
 
                         // Blocks
                         pOutput.accept(ChocoBlocks.ORANGE_TREE_LOG.get());
