@@ -28,6 +28,12 @@ public class ChocoCreativeModeTabs {
                         pOutput.accept(ChocoItems.RASPBERRY.get());
                         pOutput.accept(ChocoItems.ALMOND.get());
                         pOutput.accept(ChocoItems.ORANGE.get());
+                        pOutput.accept(ChocoItems.ALMOND_MILK_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.RASPBERRY_MILK_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.STRAWBERRY_WHITE_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.BLUEBERRY_WHITE_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.ORANGE_DARK_CHOCOLATE_BAR.get());
+                        pOutput.accept(ChocoItems.MINT_DARK_CHOCOLATE_BAR.get());
 
                         /* OTHER */
                         pOutput.accept(ChocoItems.MINT_LEAF.get());

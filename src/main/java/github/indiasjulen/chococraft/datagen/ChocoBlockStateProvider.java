@@ -17,12 +17,12 @@ public class ChocoBlockStateProvider extends BlockStateProvider {
     protected void registerStatesAndModels() {
         blockWithItem(ChocoBlocks.CHOCOLATE_REFINER_BLOCK);
         blockWithItem(ChocoBlocks.ORANGE_TREE_LOG);
-        blockWithItem(ChocoBlocks.ORANGE_TREE_WOOD);
+        //blockWithItem(ChocoBlocks.ORANGE_TREE_WOOD);
         blockWithItem(ChocoBlocks.ORANGE_TREE_LEAVES);
         blockWithItem(ChocoBlocks.ORANGE_TREE_SAPLING);
         blockWithItem(ChocoBlocks.ORANGE_TREE_PLANKS);
         blockWithItem(ChocoBlocks.STRIPPED_ORANGE_TREE_LOG);
-        blockWithItem(ChocoBlocks.STRIPPED_ORANGE_TREE_WOOD);
+        //blockWithItem(ChocoBlocks.STRIPPED_ORANGE_TREE_WOOD);
     }
 
     protected void blockWithItem(RegistryObject<Block> blockRegistryObject) {

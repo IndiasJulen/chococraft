@@ -1,10 +1,16 @@
 package github.indiasjulen.chococraft.datagen;
 
+import github.indiasjulen.chococraft.Chococraft;
 import github.indiasjulen.chococraft.item.ChocoItems;
 import net.minecraft.advancements.critereon.ItemPredicate;
 import net.minecraft.data.PackOutput;
 import net.minecraft.data.recipes.*;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Items;
+import net.minecraft.world.item.crafting.AbstractCookingRecipe;
+import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.item.crafting.RecipeSerializer;
+import net.minecraft.world.level.ItemLike;
 import net.minecraftforge.common.crafting.conditions.IConditionBuilder;
 
 import java.util.List;
@@ -71,16 +77,6 @@ public class ChocoRecipeProvider extends RecipeProvider implements IConditionBui
                         .of(ChocoItems.RASPBERRY.get()).build()))
                 .save(consumer);
 
-        /* raspberry milk chocolate bar */
-        ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ChocoItems.RASPBERRY_MILK_CHOCOLATE_BAR.get())
-                .requires(ChocoItems.MILK_CHOCOLATE_BAR.get())
-                .requires(ChocoItems.RASPBERRY.get())
-                .unlockedBy("has_milk_chocolate_bar", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ChocoItems.MILK_CHOCOLATE_BAR.get()).build()))
-                .unlockedBy("has_raspberry", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ChocoItems.RASPBERRY.get()).build()))
-                .save(consumer);
-
         /* strawberry white chocolate bar */
         ShapelessRecipeBuilder.shapeless(RecipeCategory.FOOD, ChocoItems.STRAWBERRY_WHITE_CHOCOLATE_BAR.get())
                 .requires(ChocoItems.WHITE_CHOCOLATE_BAR.get())
@@ -120,5 +116,21 @@ public class ChocoRecipeProvider extends RecipeProvider implements IConditionBui
                 .unlockedBy("has_mint_leaf", inventoryTrigger(ItemPredicate.Builder.item()
                         .of(ChocoItems.MINT_LEAF.get()).build()))
                 .save(consumer);
+    }
+
+    protected static void oreSmelting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTIme, String pGroup) {
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.SMELTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTIme, pGroup, "_from_smelting");
+    }
+
+    protected static void oreBlasting(Consumer<FinishedRecipe> pFinishedRecipeConsumer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup) {
+        oreCooking(pFinishedRecipeConsumer, RecipeSerializer.BLASTING_RECIPE, pIngredients, pCategory, pResult, pExperience, pCookingTime, pGroup, "_from_blasting");
+    }
+
+    protected static void oreCooking(Consumer<FinishedRecipe> pFinishedRecipeConsumer, RecipeSerializer<? extends AbstractCookingRecipe> pCookingSerializer, List<ItemLike> pIngredients, RecipeCategory pCategory, ItemLike pResult, float pExperience, int pCookingTime, String pGroup, String pRecipeName) {
+        for(ItemLike itemlike : pIngredients) {
+            SimpleCookingRecipeBuilder.generic(Ingredient.of(itemlike), pCategory, pResult, pExperience, pCookingTime, pCookingSerializer).group(pGroup).unlockedBy(getHasName(itemlike), has(itemlike))
+                    .save(pFinishedRecipeConsumer, new ResourceLocation(Chococraft.MOD_ID, getItemName(pResult) + pRecipeName + "_" + getItemName(itemlike)));
+        }
+
     }
 }

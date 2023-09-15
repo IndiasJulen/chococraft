@@ -1,7 +1,0 @@
-{
-  "parent": "minecraft:block/cube_column",
-  "textures": {
-    "end": "chococraft:block/stripped_orange_tree_log_top",
-    "side": "chococraft:block/stripped_orange_tree_log"
-  }
-}
