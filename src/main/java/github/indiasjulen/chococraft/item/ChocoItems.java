@@ -9,6 +9,8 @@ import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 
+import java.rmi.registry.Registry;
+
 public class ChocoItems {
     public static final DeferredRegister<Item> ITEMS = DeferredRegister.create(ForgeRegistries.ITEMS, Chococraft.MOD_ID);
 
@@ -19,6 +21,7 @@ public class ChocoItems {
             () -> new Item(new Item.Properties().food(ChocoFoods.WHITE_CHOCOLATE_BAR)));
     public static final RegistryObject<Item> DARK_CHOCOLATE_BAR = ITEMS.register("dark_chocolate_bar",
             () -> new Item(new Item.Properties().food(ChocoFoods.DARK_CHOCOLATE_BAR)));
+
     public static final RegistryObject<Item> STRAWBERRY = ITEMS.register("strawberry",
             () -> new Item(new Item.Properties().food(ChocoFoods.STRAWBERRY)));
     public static final RegistryObject<Item> BLUEBERRY = ITEMS.register("blueberry",
@@ -29,6 +32,19 @@ public class ChocoItems {
             () -> new Item(new Item.Properties().food(ChocoFoods.ORANGE)));
     public static final RegistryObject<Item> ALMOND = ITEMS.register("almond",
             () -> new Item(new Item.Properties().food(ChocoFoods.ALMOND)));
+
+    public static final RegistryObject<Item> ALMOND_MILK_CHOCOLATE_BAR = ITEMS.register("almond_milk_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.ALMOND_MILK_CHOCOLATE_BAR)));
+    public static final RegistryObject<Item> RASPBERRY_MILK_CHOCOLATE_BAR = ITEMS.register("raspberry_milk_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.RASPBERRY_MILK_CHOCOLATE_BAR)));
+    public static final RegistryObject<Item> STRAWBERRY_WHITE_CHOCOLATE_BAR = ITEMS.register("strawberry_white_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.STRAWBERRY_WHITE_CHOCOLATE_BAR)));
+    public static final RegistryObject<Item> BLUEBERRY_WHITE_CHOCOLATE_BAR = ITEMS.register("blueberry_white_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.BLUEBERRY_WHITE_CHOCOLATE_BAR)));
+    public static final RegistryObject<Item> ORANGE_DARK_CHOCOLATE_BAR = ITEMS.register("orange_dark_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.ORANGE_DARK_CHOCOLATE_BAR)));
+    public static final RegistryObject<Item> MINT_DARK_CHOCOLATE_BAR = ITEMS.register("mint_dark_chocolate_bar",
+            () -> new Item(new Item.Properties().food(ChocoFoods.MINT_DARK_CHOCOLATE_BAR)));
 
     /* OTHER */
     public static final RegistryObject<Item> MINT_LEAF = ITEMS.register("mint_leaf",

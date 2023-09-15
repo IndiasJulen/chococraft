@@ -28,4 +28,17 @@ public class ChocoFoods {
     public static final FoodProperties ALMOND = new FoodProperties.Builder().nutrition(4)
             .saturationMod(0.6f).build();
 
+    public static final FoodProperties ALMOND_MILK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+    public static final FoodProperties RASPBERRY_MILK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+    public static final FoodProperties STRAWBERRY_WHITE_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+    public static final FoodProperties BLUEBERRY_WHITE_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+    public static final FoodProperties ORANGE_DARK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+    public static final FoodProperties MINT_DARK_CHOCOLATE_BAR = new FoodProperties.Builder().nutrition(4)
+            .saturationMod(0.6f).build();
+
 }

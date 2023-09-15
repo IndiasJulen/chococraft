@@ -28,6 +28,12 @@ public class ChocoItemModelProvider extends ItemModelProvider {
         simpleItem(ChocoItems.MILK_CHOCOLATE_BAR);
         simpleItem(ChocoItems.WHITE_CHOCOLATE_BAR);
         simpleItem(ChocoItems.DARK_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.ALMOND_MILK_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.RASPBERRY_MILK_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.STRAWBERRY_WHITE_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.BLUEBERRY_WHITE_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.ORANGE_DARK_CHOCOLATE_BAR);
+        simpleItem(ChocoItems.MINT_DARK_CHOCOLATE_BAR);
 
         simpleItem(ChocoItems.MILK_CHOCOLATE_INGOT);
         simpleItem(ChocoItems.WHITE_CHOCOLATE_INGOT);
