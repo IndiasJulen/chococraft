@@ -22,7 +22,6 @@ public class DataGenerators {
 
         generator.addProvider(true, new ChocoRecipeProvider(packOutput));
         generator.addProvider(true, ChocoLootTableProvider.create(packOutput));
-        generator.addProvider(true, new ChocoBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(true, new ChocoItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new ChocoWorldGenProvider(packOutput, lookUpProvider));
     }

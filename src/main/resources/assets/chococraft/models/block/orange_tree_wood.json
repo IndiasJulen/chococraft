@@ -1,0 +1,7 @@
+{
+  "parent": "minecraft:block/cube_column",
+  "textures": {
+    "end": "chococraft:block/orange_tree_log",
+    "side": "chococraft:block/orange_tree_log"
+  }
+}

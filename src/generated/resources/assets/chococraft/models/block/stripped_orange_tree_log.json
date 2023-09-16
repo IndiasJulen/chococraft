@@ -1,6 +1,0 @@
-{
-  "parent": "minecraft:block/cube_all",
-  "textures": {
-    "all": "chococraft:block/stripped_orange_tree_log"
-  }
-}
