@@ -1,0 +1,9 @@
+// 1.20.1	2023-09-16T10:06:51.1237678	Loot Tables
+fab2c53971a9007b77e27cd04738a6d91cf32655 data/chococraft/loot_tables/blocks/chocolate_refiner.json
+3304e39c41ab487e0e00057045a88a46c4816b16 data/chococraft/loot_tables/blocks/orange_tree_leaves.json
+e1b8ff0b64fce26ca6a208cc33bf5c2c5484e4e8 data/chococraft/loot_tables/blocks/orange_tree_log.json
+38d2209c2068bf389d2aecca59ae53e164648386 data/chococraft/loot_tables/blocks/orange_tree_planks.json
+9820c1b79551be05f0c2a43bd9ab14bcbfc3cf2a data/chococraft/loot_tables/blocks/orange_tree_sapling.json
+a62a16ac513c0dc62aebd6e8b391bbcbe30c940e data/chococraft/loot_tables/blocks/orange_tree_wood.json
+d4fe65d0f883b675fc4bbb3f0d1fd28995c7178f data/chococraft/loot_tables/blocks/stripped_orange_tree_log.json
+7f061e195590987cf297163b7a9f1b8fa09c85f1 data/chococraft/loot_tables/blocks/stripped_orange_tree_wood.json

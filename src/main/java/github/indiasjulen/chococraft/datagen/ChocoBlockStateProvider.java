@@ -4,6 +4,7 @@ import github.indiasjulen.chococraft.Chococraft;
 import github.indiasjulen.chococraft.block.ChocoBlocks;
 import net.minecraft.data.PackOutput;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.CrossCollisionBlock;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;

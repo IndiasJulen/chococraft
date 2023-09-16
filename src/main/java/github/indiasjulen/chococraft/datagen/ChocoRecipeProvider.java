@@ -32,28 +32,28 @@ public class ChocoRecipeProvider extends RecipeProvider implements IConditionBui
                 0.7f, 100, "roasted_cocoa_beans");
 
         // SHAPED RECIPES
-        /* milk chocolate bar */
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.MILK_CHOCOLATE_BAR.get())
-                .define('I', ChocoItems.MILK_CHOCOLATE_INGOT.get())
-                .pattern("III")
-                .unlockedBy("has_milk_chocolate_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ChocoItems.MILK_CHOCOLATE_INGOT.get()).build()))
+        /* milk chocolate ingot */
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.MILK_CHOCOLATE_INGOT.get())
+                .define('B', ChocoItems.MILK_CHOCOLATE_BAR.get())
+                .pattern("BBB")
+                .unlockedBy("has_milk_chocolate_bar", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ChocoItems.MILK_CHOCOLATE_BAR.get()).build()))
                 .save(consumer);
 
         /* white chocolate bar */
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.WHITE_CHOCOLATE_BAR.get())
-                .define('I', ChocoItems.WHITE_CHOCOLATE_INGOT.get())
-                .pattern("III")
-                .unlockedBy("has_white_chocolate_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ChocoItems.WHITE_CHOCOLATE_INGOT.get()).build()))
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.WHITE_CHOCOLATE_INGOT.get())
+                .define('B', ChocoItems.WHITE_CHOCOLATE_BAR.get())
+                .pattern("BBB")
+                .unlockedBy("has_white_chocolate_bar", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ChocoItems.WHITE_CHOCOLATE_BAR.get()).build()))
                 .save(consumer);
 
         /* dark chocolate bar */
-        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.DARK_CHOCOLATE_BAR.get())
-                .define('I', ChocoItems.DARK_CHOCOLATE_INGOT.get())
-                .pattern("III")
-                .unlockedBy("has_dark_chocolate_ingot", inventoryTrigger(ItemPredicate.Builder.item()
-                        .of(ChocoItems.DARK_CHOCOLATE_INGOT.get()).build()))
+        ShapedRecipeBuilder.shaped(RecipeCategory.FOOD, ChocoItems.DARK_CHOCOLATE_INGOT.get())
+                .define('B', ChocoItems.DARK_CHOCOLATE_BAR.get())
+                .pattern("BBB")
+                .unlockedBy("has_dark_chocolate_bar", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(ChocoItems.DARK_CHOCOLATE_BAR.get()).build()))
                 .save(consumer);
 
         // SHAPELESS RECIPES

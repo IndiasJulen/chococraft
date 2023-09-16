@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "chococraft:dark_chocolate_bar"
+    },
+    {
+      "item": "chococraft:mint_leaf"
+    }
+  ],
+  "result": {
+    "item": "chococraft:mint_dark_chocolate_bar"
+  }
+}

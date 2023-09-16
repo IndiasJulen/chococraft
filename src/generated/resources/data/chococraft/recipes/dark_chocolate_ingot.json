@@ -1,0 +1,16 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "category": "misc",
+  "key": {
+    "B": {
+      "item": "chococraft:dark_chocolate_bar"
+    }
+  },
+  "pattern": [
+    "BBB"
+  ],
+  "result": {
+    "item": "chococraft:dark_chocolate_ingot"
+  },
+  "show_notification": true
+}
