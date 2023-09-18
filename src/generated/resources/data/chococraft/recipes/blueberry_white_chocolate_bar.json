@@ -1,0 +1,15 @@
+{
+  "type": "minecraft:crafting_shapeless",
+  "category": "misc",
+  "ingredients": [
+    {
+      "item": "chococraft:white_chocolate_bar"
+    },
+    {
+      "item": "chococraft:blueberry"
+    }
+  ],
+  "result": {
+    "item": "chococraft:blueberry_white_chocolate_bar"
+  }
+}

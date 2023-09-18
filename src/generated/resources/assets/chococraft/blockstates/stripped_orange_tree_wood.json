@@ -1,7 +1,7 @@
 {
   "variants": {
     "axis=x": {
-      "model": "chococraft:block/stripped_orange_tree_wood_top",
+      "model": "chococraft:block/stripped_orange_tree_wood_horizontal",
       "x": 90,
       "y": 90
     },
@@ -9,7 +9,7 @@
       "model": "chococraft:block/stripped_orange_tree_wood"
     },
     "axis=z": {
-      "model": "chococraft:block/stripped_orange_tree_wood_top",
+      "model": "chococraft:block/stripped_orange_tree_wood_horizontal",
       "x": 90
     }
   }

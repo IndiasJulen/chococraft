@@ -25,7 +25,7 @@ public class ChocoPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, ORANGE_TREE_PLACED_KEY, configuredFeatures.getOrThrow(ChocoConfiguredFeatures.ORANGE_TREE_KEY),
-                VegetationPlacements.treePlacement(PlacementUtils.countExtra(3, 0.1f, 2), ChocoBlocks.ORANGE_TREE_SAPLING.get()));
+                VegetationPlacements.treePlacement(PlacementUtils.countExtra(1, 0.005f, 1), ChocoBlocks.ORANGE_TREE_SAPLING.get()));
     }
 
     private static ResourceKey<PlacedFeature> createKey(String name) {

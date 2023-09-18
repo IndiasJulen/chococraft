@@ -1,10 +1,12 @@
 package github.indiasjulen.chococraft.datagen;
 
 import github.indiasjulen.chococraft.Chococraft;
+import github.indiasjulen.chococraft.block.ChocoBlocks;
 import github.indiasjulen.chococraft.item.ChocoItems;
 import net.minecraft.data.PackOutput;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
@@ -42,6 +44,8 @@ public class ChocoItemModelProvider extends ItemModelProvider {
         simpleItem(ChocoItems.COCOA_BUTTER_BOWL);
         simpleItem(ChocoItems.MILK_BOWL);
         simpleItem(ChocoItems.ROASTED_COCOA_BEANS);
+
+        saplingItem(ChocoBlocks.ORANGE_TREE_SAPLING);
     }
 
     private ItemModelBuilder simpleItem(RegistryObject<Item> item) {
@@ -54,5 +58,11 @@ public class ChocoItemModelProvider extends ItemModelProvider {
         return withExistingParent(item.getId().getPath(),
                 new ResourceLocation("item/handheld")).texture("layer0",
                 new ResourceLocation(Chococraft.MOD_ID,"item/" + item.getId().getPath()));
+    }
+
+    private ItemModelBuilder saplingItem(RegistryObject<Block> item) {
+        return withExistingParent(item.getId().getPath(),
+                new ResourceLocation("item/generated")).texture("layer0",
+                new ResourceLocation(Chococraft.MOD_ID,"block/" + item.getId().getPath()));
     }
 }

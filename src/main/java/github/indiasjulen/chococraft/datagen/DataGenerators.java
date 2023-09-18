@@ -20,6 +20,7 @@ public class DataGenerators {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookUpProvider = event.getLookupProvider();
 
+        generator.addProvider(true, new ChocoBlockStateProvider(packOutput, existingFileHelper));
         generator.addProvider(true, new ChocoRecipeProvider(packOutput));
         generator.addProvider(true, ChocoLootTableProvider.create(packOutput));
         generator.addProvider(true, new ChocoItemModelProvider(packOutput, existingFileHelper));

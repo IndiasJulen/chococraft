@@ -2,6 +2,5 @@
   "parent": "minecraft:block/cube_all",
   "textures": {
     "all": "chococraft:block/orange_tree_leaves"
-  },
-  "render_type": "cutout"
+  }
 }

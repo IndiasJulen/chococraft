@@ -1,7 +1,7 @@
 {
   "parent": "minecraft:block/cross",
+  "render_type": "minecraft:cutout",
   "textures": {
     "cross": "chococraft:block/orange_tree_sapling"
-  },
-  "render_type": "cutout"
+  }
 }

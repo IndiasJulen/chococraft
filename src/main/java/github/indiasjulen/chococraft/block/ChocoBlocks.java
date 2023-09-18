@@ -27,8 +27,7 @@ public class ChocoBlocks {
     public static final DeferredRegister<Block> BLOCKS =
             DeferredRegister.create(ForgeRegistries.BLOCKS, Chococraft.MOD_ID);
 
-    public static final RegistryObject<Block> CHOCOLATE_REFINER_BLOCK = registerBlock("chocolate_refiner",
-            () -> new ChocolateRefinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion().requiresCorrectToolForDrops()));
+    public static final RegistryObject<Block> CHOCOLATE_REFINER_BLOCK = registerBlock("chocolate_refiner", () -> new ChocolateRefinerBlock(BlockBehaviour.Properties.copy(Blocks.IRON_BLOCK).strength(6.0f).noOcclusion().requiresCorrectToolForDrops()));
 
 
     public static final RegistryObject<Block> ORANGE_TREE_LOG = registerBlock("orange_tree_log",
