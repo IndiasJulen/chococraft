@@ -18,6 +18,7 @@ import net.minecraft.world.level.levelgen.feature.configurations.TreeConfigurati
 import net.minecraft.world.level.levelgen.feature.featuresize.TwoLayersFeatureSize;
 import net.minecraft.world.level.levelgen.feature.foliageplacers.BlobFoliagePlacer;
 import net.minecraft.world.level.levelgen.feature.stateproviders.BlockStateProvider;
+import net.minecraft.world.level.levelgen.feature.stateproviders.WeightedStateProvider;
 import net.minecraft.world.level.levelgen.feature.trunkplacers.StraightTrunkPlacer;
 
 public class ChocoConfiguredFeatures {
@@ -27,8 +28,9 @@ public class ChocoConfiguredFeatures {
         register(context, ORANGE_TREE_KEY, Feature.TREE, new TreeConfiguration.TreeConfigurationBuilder(
                 BlockStateProvider.simple(ChocoBlocks.ORANGE_TREE_LOG.get()), // block that is going to be displayed as the trunk (tronco)
                 new StraightTrunkPlacer(5, 1, 1), // min height of the tree, randomA and randomB used to give some randomness to size
-                BlockStateProvider.simple(ChocoBlocks.ORANGE_TREE_LEAVES.get()), // the leaves of the tree
-//                            new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ModBlocks.RED_MAPLE_LEAVES.get().defaultBlockState(), 90).add(ModBlocks.RED_MAPLE_ORANGES_LEAVES.get().defaultBlockState(), 20).build()),
+//                BlockStateProvider.simple(ChocoBlocks.ORANGE_TREE_LEAVES.get()), // the leaves of the tree
+                new WeightedStateProvider(SimpleWeightedRandomList.<BlockState>builder().add(ChocoBlocks.ORANGE_TREE_LEAVES.get().defaultBlockState(), 90)
+                        .add(ChocoBlocks.ORANGE_TREE_GROWN_LEAVES.get().defaultBlockState(), 20).build()),
                 new BlobFoliagePlacer(ConstantInt.of(2), ConstantInt.of(0), 3), // the way of placing the leaves
                 new TwoLayersFeatureSize(1, 0, 2)).build() // how many trees can spawn together(?? no sé
         );

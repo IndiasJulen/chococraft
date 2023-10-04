@@ -20,6 +20,7 @@ public class ChocoBlockStateProvider extends BlockStateProvider {
     @Override
     protected void registerStatesAndModels() {
         blockWithItem(ChocoBlocks.ORANGE_TREE_LEAVES);
+        blockWithItem(ChocoBlocks.ORANGE_TREE_GROWN_LEAVES);
         blockWithItem(ChocoBlocks.ORANGE_TREE_PLANKS);
 
         logBlock((RotatedPillarBlock) ChocoBlocks.ORANGE_TREE_LOG.get());

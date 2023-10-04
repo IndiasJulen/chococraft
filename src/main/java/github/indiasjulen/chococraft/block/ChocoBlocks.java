@@ -74,6 +74,24 @@ public class ChocoBlocks {
                 }
             });
 
+    public static final RegistryObject<Block> ORANGE_TREE_GROWN_LEAVES = registerBlock("orange_tree_grown_leaves",
+            () -> new LeavesBlock(BlockBehaviour.Properties.copy(Blocks.OAK_LEAVES)){
+                @Override
+                public boolean isFlammable(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return true;
+                }
+
+                @Override
+                public int getFlammability(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 30;
+                }
+
+                @Override
+                public int getFireSpreadSpeed(BlockState state, BlockGetter level, BlockPos pos, Direction direction) {
+                    return 60;
+                }
+            });
+
     public static final RegistryObject<Block> ORANGE_TREE_SAPLING = registerBlock("orange_tree_sapling",
             () -> new SaplingBlock(new OrangeTreeGrower(), BlockBehaviour.Properties.copy(Blocks.OAK_SAPLING)));
 

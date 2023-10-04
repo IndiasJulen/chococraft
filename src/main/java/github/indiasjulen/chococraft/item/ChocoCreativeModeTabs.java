@@ -59,6 +59,7 @@ public class ChocoCreativeModeTabs {
                         pOutput.accept(ChocoBlocks.ORANGE_TREE_PLANKS.get());
                         pOutput.accept(ChocoBlocks.ORANGE_TREE_LEAVES.get());
                         pOutput.accept(ChocoBlocks.ORANGE_TREE_SAPLING.get());
+                        pOutput.accept(ChocoBlocks.ORANGE_TREE_GROWN_LEAVES.get());
 
                         /* ENTITIES */
                         pOutput.accept(ChocoBlocks.CHOCOLATE_REFINER_BLOCK.get());
